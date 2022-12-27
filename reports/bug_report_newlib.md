@@ -20,7 +20,7 @@ An example input is:
         printf("BUG!\n");
     }
 
-A patch that applies the necessary fix is available [here](https://github.com/iitd-plos/superopt-tests/blob/inequivalence_checking/inequivalence/bugs/patch/newlib_memccpy.patch)
+A patch that applies the necessary fix is available [here](https://github.com/compilerai/bug-reports/blob/master/patch/newlib_memccpy.patch)
 
 0: https://man.openbsd.org/memccpy
 

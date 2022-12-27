@@ -43,7 +43,7 @@ An example input is:
         printf("BUG!\n");
     }
 
-A patch that applies the necessary fix is available here for the [small string routine](https://github.com/iitd-plos/superopt-tests/blob/inequivalence_checking/inequivalence/bugs/patch/dietlibc_strcmp-small.patch) and the [fast string routine](https://github.com/iitd-plos/superopt-tests/blob/inequivalence_checking/inequivalence/bugs/patch/dietlibc_strcmp-fast.patch).
+A patch that applies the necessary fix is available here for the [small string routine](https://github.com/compilerai/bug-reports/blob/master/patch/dietlibc_strcmp-small.patch) and the [fast string routine](https://github.com/compilerai/bug-reports/blob/master/patch/dietlibc_strcmp-fast.patch).
 
 swab():
 This is in reference to the implementation present in the lib/ directory of the dietlibc repository.
@@ -56,7 +56,7 @@ An example input is:
 		printf("BUG!\n");
 	}
 
-A patch that applies the necesaary fix is available [here](https://github.com/iitd-plos/superopt-tests/blob/inequivalence_checking/inequivalence/bugs/patch/dietlibc_swab.patch).
+A patch that applies the necesaary fix is available [here](https://github.com/compilerai/bug-reports/blob/master/patch/dietlibc_swab.patch).
 
 wcschr() and wcsrchr():
 This is in reference to the implementation present in the lib/ directory of the dietlibc repository.
