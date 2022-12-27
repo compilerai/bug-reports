@@ -1,0 +1,11 @@
+--- dietlibc_strcmp-small_bug.c	2022-12-27 22:38:37.661185150 +0530
++++ dietlibc_strcmp-small_correct.c	2022-12-27 22:40:44.541164909 +0530
+@@ -12,7 +12,7 @@
+ #ifdef WANT_SMALL_STRING_ROUTINES
+     while (*s1 && *s1 == *s2)
+         s1++, s2++;
+-    return (*s1 - *s2);
++    return (*(unsigned char*)s1 - *(unsigned char*)s2);
+ #else
+     const unsigned long *lx1, *lx2;
+     unsigned long   l1, l2;

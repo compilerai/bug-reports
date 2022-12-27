@@ -1,0 +1,1 @@
+char*  strchrnul(const char *s, int c);

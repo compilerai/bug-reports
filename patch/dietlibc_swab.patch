@@ -1,0 +1,15 @@
+--- dietlibc_swab_bug.c	2022-12-27 19:58:04.430811869 +0530
++++ dietlibc_swab_correct.c	2022-12-27 22:20:54.987161641 +0530
+@@ -7,9 +7,11 @@
+   const char *s=src;
+   char *d=dest;
+   nbytes&=~1;
++  char temp;
+   for (i=0; i<nbytes; i+=2) {
++    temp = s[i];
+     d[i]=s[i+1];
+-    d[i+1]=s[i];
++    d[i+1]=temp;
+   }
+ }
+ 

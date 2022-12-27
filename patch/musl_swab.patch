@@ -1,0 +1,15 @@
+--- musl_swab_bug.c	2022-12-27 20:08:16.880721040 +0530
++++ musl_swab_correct.c	2022-12-27 22:51:19.905240094 +0530
+@@ -5,9 +5,11 @@
+ {
+ 	const char *src = _src;
+ 	char *dest = _dest;
++	char temp;
+ 	for (; n>1; n-=2) {
++		temp = src[0];
+ 		dest[0] = src[1];
+-		dest[1] = src[0];
++		dest[1] = temp;
+ 		dest += 2;
+ 		src += 2;
+ 	}

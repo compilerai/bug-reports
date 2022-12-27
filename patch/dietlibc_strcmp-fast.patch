@@ -1,0 +1,18 @@
+--- dietlibc_strcmp-fast_bug.c	2022-12-27 16:08:38.882770946 +0530
++++ dietlibc_strcmp-fast_correct.c	2022-12-27 22:41:21.688659027 +0530
+@@ -19,13 +19,13 @@
+     if (UNALIGNED(s1, s2)
+     ) {
+         while (*s1 && *s1 == *s2) s1++, s2++;
+-        return (*s1 - *s2);
++        return (*(unsigned char*)s1 - *(unsigned char*)s2);
+     }
+ 
+     if ((tmp = STRALIGN(s1)))
+         for (; tmp--; s1++, s2++)
+             if (!*s1 || *s1 != *s2)
+-                return (*s1 - *s2);
++                return (*(unsigned char*)s1 - *(unsigned char*)s2);
+ 
+     lx1 = (unsigned long *) s1;
+     lx2 = (unsigned long *) s2;
