@@ -6,10 +6,10 @@ Please find a detailed report below.
 
 Linux[0] manpage for swab() specifies that the function copies n bytes from the array pointed to by from to the array pointed to by to, exchanging adjacent even and odd bytes. Netbsd's implementation incorrectly rounds n to a multiple of 8, leading one less memory swap than expected.
 An example input is:
-  const char src[] = {65, 64, 1, 2};
+  const char src[] = {90, 91, 1, 2};
   char dst[4] = {'A', 'B', 'C', 'D'};
   swab(src, dst, 4);
-  if (dst[0] != 64 || dst[1] != 65 || dst[2] != 2 || dst[3] != 1) {
+  if (dst[0] != 91 || dst[1] != 90 || dst[2] != 2 || dst[3] != 1) {
 		printf("BUG!\n");
 	}
 

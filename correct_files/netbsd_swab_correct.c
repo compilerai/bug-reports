@@ -74,10 +74,10 @@ swab(const void *restrict from, void *restrict to, ssize_t len)
 }
 int main()
 {   
-    const char src[] = {65, 64, 1, 2};
+    const char src[] = {90, 91, 1, 2};
     char dst[4] = {'A', 'B', 'C', 'D'};
     swab(src, dst, 4);
-    if (dst[0] != 64 || dst[1] != 65 || dst[2] != 2 || dst[3] != 1) {
+    if (dst[0] != 91 || dst[1] != 90 || dst[2] != 2 || dst[3] != 1) {
 		printf("BUG!\n");
 	}
     return 0;
