@@ -20,6 +20,7 @@ An example input is:
         printf("BUG!\n");
     }
 
+The file that demonstrates the bug can be found [here](https://github.com/compilerai/bug-reports/blob/master/bug_files/newlib_memccpy_bug.c).
 A patch that applies the necessary fix is available [here](https://github.com/compilerai/bug-reports/blob/master/patch/newlib_memccpy.patch)
 
 0: https://man.openbsd.org/memccpy

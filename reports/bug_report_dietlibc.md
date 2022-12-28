@@ -1,6 +1,6 @@
 Hi,
 
-I am writing to report bugs in memchr, strcasecmp, strcmp, strncasecmp, swab, wcschr, wcsrchr functions of dietlibc. The source code was downloaded from the [official git repository](https://github.com/ensc/dietlibc).
+I am writing to report bugs in memchr, strcasecmp, strcmp, strncasecmp, swab, wcschr, wcsrchr functions of dietlibc. The dietlibc version was `0.34` and the source code was downloaded from the [latest release](http://www.fefe.de/dietlibc/dietlibc-0.34.tar.xz) on the official website.
 Please find a detailed report below.
 
 memchr():
@@ -13,6 +13,8 @@ An example input is (compiled with the `-m32` flag):
     if (!memchr(src, 257, 5)) {
         printf("BUG!\n");
     }
+
+The files that demonstrate the bug are available for the [small string routine](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_memchr_contrib-small_bug.c) and for the [fast string routine](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_memchr_contrib-fast_bug.c).
 
 strcasecmp() and strncasecmp():
 This is in reference to the implementations present in the lib/ directory of the dietlibc repository.
@@ -31,6 +33,8 @@ An example input is:
         printf("BUG!\n");
     }
 
+The files that demonstrate the bug are available for [strcasecmp](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_strcasecmp_bug.c) and [strncasecmp](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_strncasecmp_bug.c).
+
 strcmp():
 This is in reference to the implementation present in the lib/ directory of the dietlibc repository.
 The Linux[2] manpage for strcmp says that the characters have to be interpreted as `unsigned char`. The dietlibc implementation does not follow that; both the small version (with the macro `WANT_SMALL_STRING_ROUTINES` defined) and the fast version (without the macro `WANT_SMALL_STRING_ROUTINES`) have missing type-casts.
@@ -43,6 +47,7 @@ An example input is:
         printf("BUG!\n");
     }
 
+The files that demonstrate the bug are available for the [small string routine](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_strcmp-small_bug.c) and the [fast string routine](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_strcmp-fast_bug.c).
 A patch that applies the necessary fix is available here for the [small string routine](https://github.com/compilerai/bug-reports/blob/master/patch/dietlibc_strcmp-small.patch) and the [fast string routine](https://github.com/compilerai/bug-reports/blob/master/patch/dietlibc_strcmp-fast.patch).
 
 swab():
@@ -56,6 +61,7 @@ An example input is:
 		printf("BUG!\n");
 	}
 
+The file that demonstrates the bug is available [here](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_swab_bug.c).
 A patch that applies the necesaary fix is available [here](https://github.com/compilerai/bug-reports/blob/master/patch/dietlibc_swab.patch).
 
 wcschr() and wcsrchr():
@@ -73,6 +79,8 @@ An example input is:
     if (!ret) {
         printf("BUG!\n");
     }
+
+The files that demonstrate the bug are available for [wcschr](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_wcschr_bug.c) and [wcsrchr](https://github.com/compilerai/bug-reports/blob/master/bug_files/dietlibc_wcsrchr_bug.c).
 
 0: https://linux.die.net/man/3/memchr
 1: https://man7.org/linux/man-pages/man3/strcasecmp.3.html

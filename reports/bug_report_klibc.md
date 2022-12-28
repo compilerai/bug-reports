@@ -12,6 +12,7 @@ An example input is:
 		printf("BUG!\n");
 	}
 
+The file that demonstrates the bug can be found [here](https://github.com/compilerai/bug-reports/blob/master/bug_files/klibc_strrchr_bug.c).
 
 0: https://man7.org/linux/man-pages/man3/strchr.3.html
 
